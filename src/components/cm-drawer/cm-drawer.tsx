@@ -9,11 +9,11 @@ export class CmDrawer {
   @Prop({ reflect: true }) drawertitle: string;
   @Prop({ reflect: true, mutable: true }) opened: boolean;
   @Method()
-  close() {
+  async close() {
     this.opened = false;
   }
   @Method()
-  open() {
+  async open() {
     this.opened = true;
   }
   render() {

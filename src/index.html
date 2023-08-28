@@ -98,7 +98,7 @@
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
       </svg>
     </button>
-    <cm-drawer drawertitle="ClassEcho">
+    <cm-drawer drawertitle="StockInfo">
       <nav class="slider-nav">
         <ul>
           <li><a href="/">Home</a></li>
@@ -109,8 +109,17 @@
     </cm-drawer>
   </header>
   <main>
-    <cm-tooltip message=""> hello world </cm-tooltip>
+    <!-- <cm-tooltip message=""> hello world </cm-tooltip> -->
+    <cm-stock-price></cm-stock-price>
   </main>
+  <script>
+    async function fetchStockData() {
+      const res = await fetch("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=MM35D29E256IIZ77");
+      const data = await res.json();
+      console.log(data)
+    }
+    fetchStockData()
+  </script>
   <script>
     const drawer = document.querySelector('cm-drawer')
     function openSlider() {
