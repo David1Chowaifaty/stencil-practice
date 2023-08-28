@@ -1,14 +1,124 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Stencil Component Starter</title>
 
-    <script type="module" src="/build/practice.esm.js"></script>
-    <script nomodule src="/build/practice.js"></script>
-  </head>
-  <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stencil Component Starter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <script type="module" src="/build/practice.esm.js"></script>
+  <script nomodule src="/build/practice.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .slider-nav {
+      margin: 0;
+      padding: 0;
+    }
+
+    .slider-nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .slider-nav ul li {
+      margin: 0;
+      padding: 0.5rem 0;
+    }
+
+    .slider-nav ul li a {
+      text-decoration: none;
+      color: rgb(29, 29, 29);
+    }
+
+    .slider-nav ul li a:hover {
+      color: rgb(51, 0, 255);
+    }
+
+    .sliderBtn svg {
+      height: 24px;
+      width: 24px;
+    }
+
+    .sliderBtn {
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+      color: rgb(32, 32, 32);
+      border-radius: 7px;
+      height: 30px;
+      width: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sliderBtn:focus {
+      outline: 2px solid rgba(0, 0, 0, 0.347);
+      outline-offset: 2px;
+    }
+
+    .sliderBtn:hover {
+      color: black;
+      background-color: rgba(234, 234, 234, 0.8);
+    }
+
+    header {
+      position: sticky;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.553);
+      width: 100%;
+      top: 0;
+      z-index: 99999999;
+    }
+
+    @media only screen and (min-width: 600px) {
+      cm-drawer {
+        display: none;
+      }
+
+      .sliderBtn {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <button class="sliderBtn" type="button" onclick="openSlider()" aria-label="open slider">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </button>
+    <cm-drawer drawertitle="ClassEcho">
+      <nav class="slider-nav">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/">Product</a></li>
+          <li><a href="/">Contact</a></li>
+        </ul>
+      </nav>
+    </cm-drawer>
+  </header>
+  <main>
+    <cm-tooltip message=""> hello world </cm-tooltip>
+  </main>
+  <script>
+    const drawer = document.querySelector('cm-drawer')
+    function openSlider() {
+      if (!drawer.opened) {
+        drawer.open()
+      }
+    }
+  </script>
+</body>
+
 </html>
